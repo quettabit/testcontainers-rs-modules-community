@@ -170,6 +170,7 @@ impl IntoIterator for &K3sCmd {
     fn into_iter(self) -> Self::IntoIter {
         let mut cmd = vec![String::from("server")];
         cmd.push(format!("--snapshotter={}", self.snapshotter));
+        cmd.push(String::from("--disable=metrics-server"));
         cmd.into_iter()
     }
 }
